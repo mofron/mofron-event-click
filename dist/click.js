@@ -56,6 +56,12 @@
 
 	/**
 	 * @file Click.js
+	 * @author simpart
+	 */
+
+	/**
+	 * @class mofron.event.Click
+	 * @brief click event class for component
 	 */
 	mofron.event.Click = function (_mofron$event$Base) {
 	    _inherits(_class, _mofron$event$Base);
@@ -68,19 +74,21 @@
 
 	    _createClass(_class, [{
 	        key: 'event',
+
+	        /**
+	         * add click event to target component.
+	         */
 	        value: function event() {
 	            try {
-	                var cbf = this.cb_func;
-	                var cbp = this.cb_parm;
+	                var _func = this.func;
+	                var _parm = this.parm;
 	                if (false === this.target.isPushed()) {
 	                    throw new Error('target is not ready');
 	                }
-	                //console.log('set click event -> ' + this.target.getId());
-	                var tgt_dom = document.querySelector('#' + this.target.getId());
-	                tgt_dom.addEventListener('click', function () {
+	                this.target.getPushedDom().addEventListener('click', function () {
 	                    try {
-	                        if (null != cbf) {
-	                            cbf(cbp);
+	                        if (null != _func) {
+	                            _func(_parm);
 	                        }
 	                    } catch (e) {
 	                        console.error(e.stack);

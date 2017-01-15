@@ -73,19 +73,16 @@
 	    }
 
 	    _createClass(_class, [{
-	        key: 'event',
+	        key: 'eventFunc',
 
 	        /**
 	         * add click event to target component.
 	         */
-	        value: function event() {
+	        value: function eventFunc() {
 	            try {
 	                var _func = this.func;
 	                var _parm = this.parm;
-	                if (false === this.target.isPushed()) {
-	                    throw new Error('target is not ready');
-	                }
-	                this.target.getPushedDom().addEventListener('click', function () {
+	                this.target.getDom().addEventListener('click', function () {
 	                    try {
 	                        if (null != _func) {
 	                            _func(_parm);

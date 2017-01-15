@@ -11,14 +11,11 @@ mofron.event.Click = class extends mofron.event.Base {
     /**
      * add click event to target component.
      */
-    event () {
+    eventFunc () {
         try {
             var _func = this.func;
             var _parm = this.parm;
-            if (false === this.target.isPushed()) {
-                throw new Error('target is not ready');
-            }
-            this.target.getPushedDom().addEventListener('click',function() {
+            this.target.getDom().addEventListener('click',function() {
                 try {
                     if (null != _func) {
                         _func(_parm);

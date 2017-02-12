@@ -1,8 +1,8 @@
 {
   "name": "mofron-event-click",
-  "version": "0.3.3",
+  "version": "0.3.5",
   "description": "click event for mofron",
-  "main": "dist/click.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,9 +20,5 @@
   },
   "homepage": "https://github.com/simpart/mofron-event-click#readme",
   "devDependencies": {
-    "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
-    "babel-preset-es2015": "^6.22.0",
-    "webpack": "^2.2.1"
   }
 }

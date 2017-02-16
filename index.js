@@ -13,7 +13,7 @@ mofron.event.Click = class extends mofron.Event {
         try {
             super(fnc, prm);
             this.name('Click');
-
+            
             /* font theme */
             this.m_pointer = true;
         } catch (e) {
@@ -27,15 +27,14 @@ mofron.event.Click = class extends mofron.Event {
      */
     eventConts (tgt_dom) {
         try {
-            var _func = this.func;
-            var _parm = this.parm;
+            var evt_func = this.eventFunc(); 
             if (true === this.pointer()) {
-                this.target.style('cursor', 'pointer');
+                this.target().style('cursor', 'pointer');
             }
             tgt_dom.getRawDom().addEventListener('click',function() {
                 try {
-                    if (null != _func) {
-                        _func(_parm);
+                    if (null != evt_func[0]) {
+                        evt_func[0](evt_func[1]);
                     }
                 } catch (e) {
                     console.error(e.stack);

@@ -11,11 +11,17 @@ mofron.event.Click = class extends mofron.Event {
     
     constructor (fnc, prm) {
         try {
-            super(fnc, prm);
+            super();
             this.name('Click');
             
             /* font theme */
             this.m_pointer = true;
+            
+            if ('object' === fnc) {
+                this.prmOpt(fnc);
+            } else {
+                this.handler(fnc, prm);
+            }
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -27,7 +33,7 @@ mofron.event.Click = class extends mofron.Event {
      */
     eventConts (tgt_dom) {
         try {
-            var evt_func = this.eventFunc(); 
+            var evt_func = this.handler(); 
             if (true === this.pointer()) {
                 this.target().style('cursor', 'pointer');
             }
@@ -63,3 +69,4 @@ mofron.event.Click = class extends mofron.Event {
         }
     }
 }
+module.exports = mofron.event.Click;

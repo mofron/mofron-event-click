@@ -35,7 +35,9 @@ mofron.event.Click = class extends mofron.Event {
         try {
             var evt_func = this.handler(); 
             if (true === this.pointer()) {
-                this.target().style('cursor', 'pointer');
+                this.target().style({
+                    'cursor' :  'pointer'
+                });
             }
             tgt_dom.getRawDom().addEventListener('click',function() {
                 try {

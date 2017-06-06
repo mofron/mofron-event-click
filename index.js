@@ -39,10 +39,11 @@ mofron.event.Click = class extends mofron.Event {
                     'cursor' :  'pointer'
                 });
             }
+            let tgt = this.target();
             tgt_dom.getRawDom().addEventListener('click',function() {
                 try {
                     if (null != evt_func[0]) {
-                        evt_func[0](evt_func[1]);
+                        evt_func[0](tgt, evt_func[1]);
                     }
                 } catch (e) {
                     console.error(e.stack);

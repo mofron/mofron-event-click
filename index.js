@@ -17,7 +17,7 @@ mofron.event.Click = class extends mofron.Event {
             /* font theme */
             this.m_pointer = true;
             
-            if ('object' === fnc) {
+            if ('object' === typeof fnc) {
                 this.prmOpt(fnc);
             } else {
                 this.handler(fnc, prm);

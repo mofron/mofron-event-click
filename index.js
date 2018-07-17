@@ -9,19 +9,14 @@
  */
 mofron.event.Click = class extends mofron.Event {
     
-    constructor (fnc, prm) {
+    constructor (po, p2) {
         try {
             super();
             this.name('Click');
             
             /* font theme */
             this.m_pointer = true;
-            
-            if ('object' === typeof fnc) {
-                this.prmOpt(fnc);
-            } else {
-                this.handler(fnc, prm);
-            }
+            this.prmOpt(po, p2);
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -31,19 +26,19 @@ mofron.event.Click = class extends mofron.Event {
     /**
      * add click event to target component.
      */
-    eventConts (tgt_dom) {
+    contents (tgt_dom) {
         try {
             var evt_func = this.handler(); 
             if (true === this.pointer()) {
-                this.target().style({
+                this.component().style({
                     'cursor' :  'pointer'
                 });
             }
-            let tgt = this.target();
+            let cmp = this.component();
             tgt_dom.getRawDom().addEventListener('click',function() {
                 try {
                     if (null != evt_func[0]) {
-                        evt_func[0](tgt, evt_func[1]);
+                        evt_func[0](cmp, evt_func[1]);
                     }
                 } catch (e) {
                     console.error(e.stack);

@@ -1,6 +1,6 @@
 {
   "name": "mofron-event-click",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "click event for mofron",
   "main": "index.js",
   "scripts": {

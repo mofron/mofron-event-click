@@ -9,14 +9,12 @@
  */
 mofron.event.Click = class extends mofron.Event {
     
-    constructor (po, p2) {
+    constructor (po, p2, p3) {
         try {
             super();
             this.name('Click');
-            
-            /* font theme */
-            this.m_pointer = true;
-            this.prmOpt(po, p2);
+            this.prmMap('handler', 'handlerPrm', 'pointer');
+            this.prmOpt(po, p2, p3);
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -54,7 +52,7 @@ mofron.event.Click = class extends mofron.Event {
     pointer (flg) {
         try {
             if (undefined === flg) {
-                return this.m_pointer;
+                return (undefined === this.m_pointer) ? true : this.m_pointer;
             }
             
             if ('boolean' !== typeof flg) {

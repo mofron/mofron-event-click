@@ -1,20 +1,22 @@
 /**
  * @file Click.js
+ * @brief click event for mofron component
  * @author simpart
  */
+const mf = require('mofron');
 
 /**
  * @class mofron.event.Click
- * @brief click event class for component
+ * @brief click event class
  */
-mofron.event.Click = class extends mofron.Event {
+mf.event.Click = class extends mf.Event {
     
-    constructor (po, p2, p3) {
+    constructor (po, p2) {
         try {
             super();
             this.name('Click');
-            this.prmMap('handler', 'handlerPrm', 'pointer');
-            this.prmOpt(po, p2, p3);
+            this.prmMap('handler', 'pointer');
+            this.prmOpt(po, p2);
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -26,23 +28,22 @@ mofron.event.Click = class extends mofron.Event {
      */
     contents (tgt_dom) {
         try {
-            var evt_func = this.handler(); 
             if (true === this.pointer()) {
                 this.component().style({
                     'cursor' :  'pointer'
                 });
             }
-            let cmp = this.component();
-            tgt_dom.getRawDom().addEventListener('click',function() {
-                try {
-                    if (null != evt_func[0]) {
-                        evt_func[0](cmp, evt_func[1]);
+            let clk = this;
+            tgt_dom.getRawDom().addEventListener(
+                'click',
+                () => {
+                    try { clk.execHandler(); } catch (e) {
+                        console.error(e.stack);
+                        throw e;
                     }
-                } catch (e) {
-                    console.error(e.stack);
-                    throw e;
-                }
-            },false);
+                },
+                false
+            );
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -65,4 +66,5 @@ mofron.event.Click = class extends mofron.Event {
         }
     }
 }
-module.exports = mofron.event.Click;
+module.exports = mf.event.Click;
+/* end of file */

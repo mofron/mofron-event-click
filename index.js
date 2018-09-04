@@ -11,12 +11,12 @@ const mf = require('mofron');
  */
 mf.event.Click = class extends mf.Event {
     
-    constructor (po, p2) {
+    constructor (po) {
         try {
             super();
             this.name('Click');
-            this.prmMap('handler', 'pointer');
-            this.prmOpt(po, p2);
+            this.prmMap('handler');
+            this.prmOpt(po);
         } catch (e) {
             console.error(e.stack);
             throw e;

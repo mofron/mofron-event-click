@@ -1,6 +1,6 @@
 {
   "name": "mofron-event-click",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "click event for mofron",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "mofron"
   ],
   "author": "simparts",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/simpart/mofron-event-click/issues"
   },

@@ -1,10 +1,9 @@
 /**
- * @file Click.js
+ * @file mofron-event-click/index.js
  * @brief click event for mofron component
  * @author simpart
  */
 const mf = require('mofron');
-
 /**
  * @class mofron.event.Click
  * @brief click event class
@@ -25,13 +24,13 @@ mf.event.Click = class extends mf.Event {
     
     /**
      * add click event to target component.
+     *
+     * @note private method
      */
     contents (tgt_dom) {
         try {
             if (true === this.pointer()) {
-                this.component().style({
-                    'cursor' :  'pointer'
-                });
+                this.component().style({ 'cursor' :  'pointer' });
             }
             let clk = this;
             tgt_dom.getRawDom().addEventListener(
@@ -50,16 +49,25 @@ mf.event.Click = class extends mf.Event {
         }
     }
     
+    /**
+     * setter/getter mouse cursor style config
+     *
+     * @param flg (true) cursor style is pointer
+     * @param flg (false) cursor style is default
+     * @param flg (undefined) call as getter
+     * @return (boolean) 
+     */
     pointer (flg) {
         try {
-            if (undefined === flg) {
-                return (undefined === this.m_pointer) ? true : this.m_pointer;
+            let ret = this.member('pointer', 'boolean', flg, true);
+            if (true === this.isExecd()) {
+                if (undefined === flg) {
+                    return this.component().style('cursor');
+                } else if (true === flg) {
+                    this.component().style({ 'cursor' : 'pointer' });
+                }
             }
-            
-            if ('boolean' !== typeof flg) {
-                throw new Error('invalid parameter');
-            }
-            this.m_pointer = flg;
+            return ret;
         } catch (e) {
             console.error(e.stack);
             throw e;

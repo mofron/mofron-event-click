@@ -36,7 +36,7 @@ mf.event.Click = class extends mf.Event {
             tgt_dom.getRawDom().addEventListener(
                 'click',
                 () => {
-                    try { clk.execHandler(); } catch (e) {
+                    try { clk.execHandler(clk); } catch (e) {
                         console.error(e.stack);
                         throw e;
                     }

@@ -58,17 +58,7 @@ mf.event.Click = class extends mf.Event {
      * @return (boolean) 
      */
     pointer (flg) {
-        try {
-            let ret = this.member('pointer', 'boolean', flg, true);
-            if (true === this.isExecd()) {
-                if (undefined === flg) {
-                    return this.component().style('cursor');
-                } else if (true === flg) {
-                    this.component().style({ 'cursor' : 'pointer' });
-                }
-            }
-            return ret;
-        } catch (e) {
+        try { return this.member('pointer', 'boolean', flg, true); } catch (e) {
             console.error(e.stack);
             throw e;
         }

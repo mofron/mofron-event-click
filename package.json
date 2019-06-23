@@ -1,6 +1,6 @@
 {
   "name": "mofron-event-click",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "click event for mofron",
   "main": "index.js",
   "scripts": {
@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/simpart/mofron-event-click.git"
+    "url": "git+https://github.com/mofron/mofron-event-click.git"
   },
   "keywords": [
-    "mofron"
+    "front-end"
   ],
   "author": "simparts",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/simpart/mofron-event-click/issues"
+    "url": "https://github.com/mofron/mofron-event-click/issues"
   },
-  "homepage": "https://github.com/simpart/mofron-event-click#readme",
+  "homepage": "https://github.com/mofron/mofron-event-click#readme",
   "devDependencies": {
   }
 }

@@ -1,20 +1,25 @@
 /**
  * @file mofron-event-click/index.js
  * @brief click event for mofron component
+ *        event hander when component is clicked
  * @author simpart
  */
-const mf = require('mofron');
-/**
- * @class mofron.event.Click
- * @brief click event class
- */
-mf.event.Click = class extends mf.Event {
-    
+const mf     = require("mofron");
+const Common = require("mofron-event-common");
+
+mf.event.Click = class extends Common {
+    /**
+     * initialize click event
+     * 
+     * @param (array (function/mixed)) "handler" parameter
+     * @type private
+     */
     constructor (po) {
         try {
             super();
-            this.name('Click');
-            this.prmMap('handler');
+            this.name("Click");
+            this.prmMap("handler");
+            this.type("click");
             this.prmOpt(po);
         } catch (e) {
             console.error(e.stack);
@@ -24,25 +29,16 @@ mf.event.Click = class extends mf.Event {
     
     /**
      * add click event to target component.
-     *
-     * @note private method
+     * 
+     * @param (component) event target component
+     * @type private
      */
-    contents (tgt_dom) {
+    contents (tgt) {
         try {
+            super.contents(tgt);
             if (true === this.pointer()) {
-                this.component().style({ 'cursor' :  'pointer' });
+                this.component().style({ 'cursor' : 'pointer' });
             }
-            let clk = this;
-            tgt_dom.getRawDom().addEventListener(
-                'click',
-                () => {
-                    try { clk.execHandler(clk); } catch (e) {
-                        console.error(e.stack);
-                        throw e;
-                    }
-                },
-                false
-            );
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -50,12 +46,12 @@ mf.event.Click = class extends mf.Event {
     }
     
     /**
-     * setter/getter mouse cursor style config
+     * mouse cursor style
      *
-     * @param flg (true) cursor style is pointer
-     * @param flg (false) cursor style is default
-     * @param flg (undefined) call as getter
-     * @return (boolean) 
+     * @param (boolean) true: mouse-in cursor is pointer
+     *                  false: mouse-in coursor is default
+     * @return (boolean) mouse-in cursor style
+     * @type parameter
      */
     pointer (flg) {
         try { return this.member('pointer', 'boolean', flg, true); } catch (e) {

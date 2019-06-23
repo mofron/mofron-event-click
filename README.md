@@ -32,4 +32,4 @@ let clk = () => { alert("click"); }
 |:---------------:|:-------------------|:-----------------------|:-------------------------------------------|
 | 　     ◯        | handler            | array (function,mixed) | event function                             |
 |                 | pointer            | boolean                | true: mouse-in cursor is pointer (default) |
-|                 |                    |                        | false: ouse-in coursor is default          |
+|                 |                    |                        | false: mouse-in coursor is default          |

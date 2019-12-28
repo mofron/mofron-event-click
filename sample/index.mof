@@ -1,0 +1,10 @@
+<require>
+    <tag load="mofron-comp-text">Text</tag>
+    <tag load="mofron-event-click">Click</tag>
+</require>
+
+<script name=clk run=init>
+    alert("click");
+</script>
+
+<Text event=Click(clk)>Click</Text>

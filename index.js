@@ -2,25 +2,33 @@
  * @file mofron-event-click/index.js
  * @brief click event for mofron component
  *        event hander when component is clicked
- * @author simpart
+ * @license MIT
  */
-const mf     = require("mofron");
 const Common = require("mofron-event-common");
 
-mf.event.Click = class extends Common {
+module.exports = class extends Common {
     /**
      * initialize click event
      * 
-     * @param (array (function/mixed)) "handler" parameter
+     * @param (mixed) handler parameter
+     *                key-value: event config
+     * @short handler
      * @type private
      */
-    constructor (po) {
+    constructor (p1) {
         try {
             super();
-            this.name("Click");
-            this.prmMap("handler");
+            
+	    /* init config */
+	    this.name("Click");
+            this.confmng().add("pointer", { type: "boolean", init: true });
+	    this.shortForm("handler");
             this.type("click");
-            this.prmOpt(po);
+            
+	    /* set config */
+	    if (0 < arguments.length) {
+	        this.config(p1);
+            }
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -37,7 +45,10 @@ mf.event.Click = class extends Common {
         try {
             super.contents(tgt);
             if (true === this.pointer()) {
-                this.component().style({ 'cursor' : 'pointer' });
+                this.component().style(
+		    { 'cursor' : 'pointer' },
+		    { passive: true }
+		);
             }
         } catch (e) {
             console.error(e.stack);
@@ -48,17 +59,18 @@ mf.event.Click = class extends Common {
     /**
      * mouse cursor style
      *
-     * @param (boolean) true: mouse-in cursor is pointer
+     * @param (boolean) true: mouse-in cursor is pointer [default]
      *                  false: mouse-in coursor is default
      * @return (boolean) mouse-in cursor style
      * @type parameter
      */
     pointer (flg) {
-        try { return this.member('pointer', 'boolean', flg, true); } catch (e) {
+        try {
+	    return this.confmng("pointer", flg);
+	} catch (e) {
             console.error(e.stack);
             throw e;
         }
     }
 }
-module.exports = mf.event.Click;
 /* end of file */

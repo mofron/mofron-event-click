@@ -2,6 +2,10 @@
  * @file mofron-event-click/index.js
  * @brief click event for mofron component
  *        event hander when component is clicked
+ * ## event function parameter
+ *  - component: event target component object
+ *  - event: "click" event object by addEventListener
+ *  - mixed: user specified parameter
  * @license MIT
  */
 const Common = require("mofron-event-common");
@@ -10,19 +14,17 @@ module.exports = class extends Common {
     /**
      * initialize click event
      * 
-     * @param (mixed) handler parameter
+     * @param (mixed) listener parameter
      *                key-value: event config
-     * @short handler
      * @type private
      */
     constructor (p1) {
         try {
             super();
-            
+            this.name("Click");
+
 	    /* init config */
-	    this.name("Click");
             this.confmng().add("pointer", { type: "boolean", init: true });
-	    this.shortForm("handler");
             this.type("click");
             
 	    /* set config */

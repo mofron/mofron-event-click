@@ -5,6 +5,14 @@ click event for mofron component
 
 event hander when component is clicked
 
+## event function parameter
+
+- component: event target component object
+
+- event: "click" event object by addEventListener
+
+- mixed: user specified parameter
+
 
 # Install
 ```

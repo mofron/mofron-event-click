@@ -30,7 +30,7 @@ npm install mofron mofron-event-click
     alert("click");
 </script>
 
-<Text event=Click(clk)>Click</Text>
+<Text event=Click:@clk)>Click</Text>
 ```
 
 # Parameter

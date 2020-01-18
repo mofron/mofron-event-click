@@ -18,19 +18,19 @@ module.exports = class extends Common {
      *                key-value: event config
      * @type private
      */
-    constructor (p1) {
+    constructor (prm) {
         try {
             super();
             this.name("Click");
-
+            
 	    /* init config */
             this.confmng().add("pointer", { type: "boolean", init: true });
             this.type("click");
             
 	    /* set config */
-	    if (0 < arguments.length) {
-	        this.config(p1);
-            }
+	    if (undefined !== prm) {
+	        this.config(prm);
+	    }
         } catch (e) {
             console.error(e.stack);
             throw e;

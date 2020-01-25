@@ -3,13 +3,13 @@
 
 click event for mofron component
 
-event hander when component is clicked
+it executes an event function when the component is clicked
 
 ## event function parameter
 
 - component: event target component object
 
-- event: "click" event object by addEventListener
+- object: MouseEvent object of addEventListener
 
 - mixed: user specified parameter
 
@@ -30,7 +30,7 @@ npm install mofron mofron-event-click
     alert("click");
 </script>
 
-<Text event=Click:@clk)>Click</Text>
+<Text event=Click:@clk>Click</Text>
 ```
 
 # Parameter

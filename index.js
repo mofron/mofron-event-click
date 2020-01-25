@@ -1,10 +1,10 @@
 /**
  * @file mofron-event-click/index.js
  * @brief click event for mofron component
- *        event hander when component is clicked
+ *        it executes an event function when the component is clicked
  * ## event function parameter
  *  - component: event target component object
- *  - event: "click" event object by addEventListener
+ *  - object: MouseEvent object of addEventListener
  *  - mixed: user specified parameter
  * @license MIT
  */
@@ -22,11 +22,10 @@ module.exports = class extends Common {
         try {
             super();
             this.name("Click");
-            
+            this.shortForm("listener");
 	    /* init config */
             this.confmng().add("pointer", { type: "boolean", init: true });
             this.type("click");
-            
 	    /* set config */
 	    if (undefined !== prm) {
 	        this.config(prm);

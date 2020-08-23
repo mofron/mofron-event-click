@@ -21,7 +21,7 @@ module.exports = class extends Common {
     constructor (prm) {
         try {
             super();
-            this.name("Click");
+            this.modname("Click");
             this.shortForm("listener");
 	    /* init config */
             this.confmng().add("pointer", { type: "boolean", init: true });
